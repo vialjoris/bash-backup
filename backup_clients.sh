@@ -17,8 +17,8 @@ function usage() {
 
 # send_slack ${MESSAGE}
 function send_slack() {
-    SLACK_HOOKS="https://hooks.slack.com/services/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"
-    SLACK_CHANNEL_ID="GC60MAEA0"
+    SLACK_HOOKS="https://hooks.slack.com/services/<...>"
+    SLACK_CHANNEL_ID="******"
     MESSAGE="$@" 
     echo "${MESSAGE}"   
     curl --silent --output /dev/null --show-error --fail --request POST --url ${SLACK_HOOKS} --header 'content-type: application/json' --data "{ \"text\":\"${MESSAGE}\", \"channel\": \"${SLACK_CHANNEL_ID}\" }"    
@@ -79,7 +79,7 @@ function check_date_backup_mysql() {
     DATE_FILE_SQL=$(echo ${FILE_SQL} | for i in * ; do awk -F '-' '{print $2}';done | for i in * ; do awk -F '_' '{print $1}';done )
 
     if [ ! "${DATE_FILE_SQL}" == "${CURRENT_DATE}" ];then        
-        MESSAGE="Efrogg_Backup_Tools : $1 - Alerte, le fichier de backup ${FILE_SQL} n'est pas à la date du jour."        
+        MESSAGE="Backup_Tools : $1 - Alerte, le fichier de backup ${FILE_SQL} n'est pas à la date du jour."        
         send_slack ${MESSAGE}
     fi   
 }
