@@ -11,7 +11,7 @@ COLOR_OFF="\\033[0;39m"
 
 function usage() {
     echo -e ${GREEN}" usage:${COLOR_OFF} ./backup_clients.sh  [-s <source_in_ssh_config>] [-d <backup_dir_path>] [-o <www_data|mysql_backup|mongodb_backup|metabase_data|bitwarden_data|gitlab_backup>] [-e <exclude_file_path> optionnel]"   
-    echo -e ${GREEN}" usage:${COLOR_OFF} ./backup_clients.sh -s speedway_prod -d /mnt/data/backup/speedway -o www -e /mnt/data/backup/speedway/.rsyncignore"
+    echo -e ${GREEN}" usage:${COLOR_OFF} ./backup_clients.sh -s ssh_client -d /mnt/data/backup/client -o www -e /mnt/data/backup/client/.rsyncignore"
     exit 1;
 }
 
